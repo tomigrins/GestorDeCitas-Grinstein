@@ -8,7 +8,15 @@ import Form from './components/Form/Index'
 import Lista from './components/Lista/Index'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [citas, setCitas] = useState([])
+
+  function addAppointment(nuevaCita) {
+    setCitas(prev => [...prev, nuevaCita])
+  }
+
+  function deleteAppointment(id) {
+    setCitas(prev => prev.filter(c => c.id !== id))
+  }
 
   return (
     <>
@@ -16,11 +24,11 @@ function App() {
       <section>
         <div>
           <h1>CREAR MI CITA</h1>
-          <Form />
+          <Form addAppointment={addAppointment} />
         </div>
         <div>
           <h1>ADMINISTRA TUS CITAS</h1>
-          <Lista />
+          <Lista citas={citas} deleteAppointment={deleteAppointment} />
         </div>
       </section>
     </>
