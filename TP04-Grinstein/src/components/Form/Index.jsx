@@ -1,7 +1,7 @@
 import "./Form.css";
 import { useState } from "react";
 
-function Form({ addAppointment }) {
+function Form({ agregarCita }) {
     const [form, setForm] = useState({
         mascota: "",
         propietario: "",
@@ -19,7 +19,7 @@ function Form({ addAppointment }) {
         e.preventDefault()
         if (!form.mascota.trim()) return
         const nuevaCita = { ...form, id: Date.now() }
-        addAppointment(nuevaCita)
+        agregarCita(nuevaCita)
         setForm({ mascota: "", propietario: "", fecha: "", hora: "", sintomas: "" })
     }
 

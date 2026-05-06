@@ -2,7 +2,7 @@ import Card from "../Card/Index";
 import "./Lista.css";
 
 
-function Lista({ citas = [], deleteAppointment }) {
+function Lista({ citas = [], eliminarCita }) {
     return (
         <section className="listado-citas">
             {citas.length === 0 ? (
@@ -17,7 +17,7 @@ function Lista({ citas = [], deleteAppointment }) {
                         fecha={cita.fecha}
                         hora={cita.hora}
                         sintomas={cita.sintomas}
-                        onDelete={deleteAppointment}
+                        onDelete={eliminarCita}
                     />
                 ))
             )}
